@@ -1,17 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Landing from "./Landing";
+import Search from "./Search";
 
 /**
  * @see https://github.com/airbnb/javascript#arrows--implicit-return
+ * @see https://reacttraining.com/react-router/web/api/Link
  */
 const App = () => (
-  <div className="app">
-    <div className="landing">
-      <h1>svideo</h1>
-      <input type="text" placeholder="Search" />
-      <a>or Browse All</a>
+  <Router>
+    <div className="app">
+      <Route exact path="/" component={Landing} />
+      <Route path="/search" component={Search} />
     </div>
-  </div>
+  </Router>
 );
 
-ReactDOM.render(<App />, document.getElementById("app"));
+render(<App />, document.getElementById("app"));

@@ -5,6 +5,7 @@ module.exports = {
   entry: "./js/ClientApp.jsx",
   devtool: "source-map",
   devServer: {
+    historyApiFallback: true,
     publicPath: "/public/",
   },
   output: {
