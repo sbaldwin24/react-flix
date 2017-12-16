@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-
+/**
+ * @see https://github.com/styled-components/styled-components
+ * @see https://www.styled-components.com/
+ */
 const Wrapper = styled.div`
   border: 2px solid #333;
   border-radius: 4px;

@@ -1,16 +1,4 @@
 {
   "plugins": ["react-hot-loader/babel"],
-  "presets": [
-    "react",
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": "last 2 versions"
-        },
-        "loose": true,
-        "modules": false
-      }
-    ]
-  ]
+  "presets": ["env", "react", "stage-2"]
 }
