@@ -9,4 +9,7 @@ const Landing = () => (
   </div>
 );
 
+/**
+ * @see https://github.com/airbnb/javascript#whitespace--newline-at-end
+ */
 export default Landing;
