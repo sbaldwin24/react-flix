@@ -3,6 +3,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * @see https://reacttraining.com/react-router/web/api/Link
+ */
+
 const Landing = () => (
   <div className="landing">
     <h1>ReactFlix</h1>
