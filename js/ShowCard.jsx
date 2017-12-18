@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+
 /**
  * @see https://github.com/styled-components/styled-components
  * @see https://www.styled-components.com/
+ * @see http://wesbos.com/tagged-template-literals/
  */
 const Wrapper = styled.div`
   border: 2px solid #333;
@@ -23,17 +25,18 @@ const Image = styled.img`
 const ShowCard = props => (
   <Wrapper>
     <Image
-      alt={`${props.poster} Show Poster`}
+      alt={`${props.title} Show Poster`}
       src={`../public/img/posters/${props.poster}`}
     />
-    <div>
-      <h3>{props.title}</h3>
-      <h4>{props.year}</h4>
-      <p>{props.description}</p>
-    </div>
+    <h3>{props.title}</h3>
+    <h4>({props.year})</h4>
+    <p>{props.description}</p>
   </Wrapper>
 );
 
+/**
+ * @see https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes
+ */
 ShowCard.propTypes = {
   poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

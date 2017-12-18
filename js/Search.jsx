@@ -3,11 +3,12 @@ import preload from "../data.json";
 import ShowCard from "./ShowCard";
 
 /**
+ * @see https://babeljs.io/docs/plugins/transform-class-properties/
  * @see https://github.com/tc39/proposal-class-fields
  */
 class Search extends React.Component {
   state = {
-    searchTerm: "ReactFlix",
+    searchTerm: "",
   };
 
   handleSearchTermChange = e => {
@@ -19,15 +20,14 @@ class Search extends React.Component {
 
   render() {
     const { searchTerm } = this.state;
-
     return (
       <div className="search">
         <header>
-          <h1>{searchTerm}</h1>
+          <h1>ReactFlix</h1>n
           <input
-            placeholder="Search"
             onChange={this.handleSearchTermChange}
             type="text"
+            placeholder="Search"
             value={searchTerm}
           />
         </header>
@@ -39,9 +39,15 @@ class Search extends React.Component {
                   .toUpperCase()
                   .indexOf(searchTerm.toUpperCase()) >= 0,
             )
-            .map((show, index) => (
-              <ShowCard {...show} id={index} key={show.imdbID} />
-            ))}}
+            .map(show => (
+              <ShowCard
+                key={show.imdbID}
+                title={show.title}
+                poster={show.poster}
+                year={show.year}
+                description={show.description}
+              />
+            ))}
         </div>
       </div>
     );
