@@ -1,5 +1,6 @@
+// @flow
+
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 /**
@@ -22,7 +23,12 @@ const Image = styled.img`
   width: 46%;
 `;
 
-const ShowCard = props => (
+const ShowCard = (props: {
+	poster: string,
+	title: string,
+	year: string,
+	description: string
+}) => (
   <Wrapper>
     <Image
       alt={`${props.title} Show Poster`}
@@ -33,15 +39,5 @@ const ShowCard = props => (
     <p>{props.description}</p>
   </Wrapper>
 );
-
-/**
- * @see https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes
- */
-ShowCard.propTypes = {
-  poster: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
 
 export default ShowCard;
