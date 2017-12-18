@@ -23,7 +23,7 @@ class Search extends React.Component {
     return (
       <div className="search">
         <header>
-          <h1>ReactFlix</h1>n
+          <h1>ReactFlix</h1>
           <input
             onChange={this.handleSearchTermChange}
             type="text"
