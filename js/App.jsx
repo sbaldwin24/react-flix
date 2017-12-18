@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./Landing";
@@ -7,7 +9,6 @@ import Search from "./Search";
  * @see http://2ality.com/2012/04/arrow-functions.html
  * @see https://github.com/airbnb/javascript#arrows--implicit-return
  */
-
 const FourOhFour = () => <h1>404</h1>;
 
 /**
