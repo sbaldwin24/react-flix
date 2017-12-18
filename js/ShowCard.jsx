@@ -23,11 +23,14 @@ const Image = styled.img`
   width: 46%;
 `;
 
+/**
+ * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
+ */
 const ShowCard = (props: {
-	poster: string,
-	title: string,
-	year: string,
-	description: string
+  poster: string,
+  title: string,
+  year: string,
+  description: string,
 }) => (
   <Wrapper>
     <Image

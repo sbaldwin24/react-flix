@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
-import preload from "../data.json";
 import ShowCard from "./ShowCard";
+import Header from "./Header";
 
 /**
  * @see https://babeljs.io/docs/plugins/transform-class-properties/
@@ -13,9 +13,18 @@ class Search extends React.Component {
   };
 
   /**
+   * @see https://flow.org/en/docs/types/arrays/
+   */
+  props: {
+    shows: Array<Show>,
+  };
+
+  /**
    * @see https://flow.org/en/docs/react/events/
    */
-  handleSearchTermChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement}) => {
+  handleSearchTermChange = (
+    event: SyntheticKeyboardEvent & { target: HTMLInputElement },
+  ) => {
     const value = event.target.value;
     this.setState({
       searchTerm: value,
@@ -26,17 +35,13 @@ class Search extends React.Component {
     const { searchTerm } = this.state;
     return (
       <div className="search">
-        <header>
-          <h1>ReactFlix</h1>
-          <input
-            onChange={this.handleSearchTermChange}
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-          />
-        </header>
+        <Header
+          searchTerm={searchTerm}
+          showSearch
+          handleSearchTermChange={this.handleSearchTermChange}
+        />
         <div>
-          {preload.shows
+          {this.props.shows
             .filter(
               show =>
                 `${show.title} ${show.description}`
