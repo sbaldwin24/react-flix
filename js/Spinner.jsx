@@ -5,19 +5,18 @@ import styled, { keyframes } from "styled-components";
 /**
  * @see https://www.styled-components.com/docs/basics#animations
  */
-
 const dash = keyframes`
-0% {
-	stroke-dashoffset: 187;
-}
-50% {
-	stroke-dashoffset: 46.75;
-	transform: rotate(135deg);
-}
-100% {
-	stroke-dashoffset: 187;
-	transform: rotate(450deg);
-}
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
 `;
 const rotator = keyframes`
 	0% {
