@@ -48,15 +48,7 @@ class Search extends React.Component {
                   .toUpperCase()
                   .indexOf(searchTerm.toUpperCase()) >= 0,
             )
-            .map(show => (
-              <ShowCard
-                key={show.imdbID}
-                title={show.title}
-                poster={show.poster}
-                year={show.year}
-                description={show.description}
-              />
-            ))}
+            .map(show => <ShowCard key={show.imdbID} {...show} />)}
         </div>
       </div>
     );
