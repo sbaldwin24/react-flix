@@ -1,39 +1,29 @@
 // @flow
 
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import Header from "./Header";
 import Spinner from "./Spinner";
 
-/**
- * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
- * @see https://reacttraining.com/react-router/web/api/Link
- */
-class Details extends React.Component {
+class Details extends Component {
   state = {
     apiData: { rating: "" },
   };
-
   componentDidMount() {
     axios
       .get(`http://localhost:3000/${this.props.show.imdbID}`)
       .then((response: { data: { rating: string } }) => {
-        this.setState({
-          apiData: response.data,
-        });
+        this.setState({ apiData: response.data });
       });
   }
-
   props: {
     show: Show,
   };
-
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
-    const { apiData } = this.state;
     let ratingComponent;
-    if (apiData.rating) {
-      ratingComponent = <h3>{apiData.rating}</h3>;
+    if (this.state.apiData.rating) {
+      ratingComponent = <h3>{this.state.apiData.rating}</h3>;
     } else {
       ratingComponent = <Spinner />;
     }
