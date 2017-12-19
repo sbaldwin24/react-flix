@@ -28,18 +28,27 @@ const Image = styled.img`
 `;
 
 /**
+ * @see https://reactjs.org/docs/react-component.html#shouldcomponentupdate
  * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
  */
-const ShowCard = (props: Show) => (
-  <Wrapper to={`/details/${props.imdbID}`}>
-    <Image
-      alt={`${props.title} Show Poster`}
-      src={`../public/img/posters/${props.poster}`}
-    />
-    <h3>{props.title}</h3>
-    <h4>({props.year})</h4>
-    <p>{props.description}</p>
-  </Wrapper>
-);
-
+class ShowCard extends React.Component {
+  shouldComponentUpdate() {
+    return false;
+  }
+  props: Show;
+  render() {
+    const { description, imdbID, poster, title, year } = this.props;
+    return (
+      <Wrapper to={`/details/${imdbID}`}>
+        <Image
+          alt={`${title} Show Poster`}
+          src={`../public/img/posters/${poster}`}
+        />
+        <h3>{title}</h3>
+        <h4>({year})</h4>
+        <p>{description}</p>
+      </Wrapper>
+    );
+  }
+}
 export default ShowCard;
