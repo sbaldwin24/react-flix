@@ -10,7 +10,6 @@ const setSearchTerm = (state, action) =>
 /**
  * @param {object} state
  * @param {object} action
- * @returns {object}
  * @see http://redux.js.org/docs/basics/Reducers.html
  */
 const rootReducer = (state = DEFAULT_STATE, action) => {
