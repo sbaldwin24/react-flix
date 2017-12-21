@@ -1,11 +1,14 @@
 // @flow
 
-import React, { Component } from "react";
+import React from "react";
 import axios from "axios";
 import Header from "./Header";
 import Spinner from "./Spinner";
 
-class Details extends Component {
+/**
+ * @see https://reactjs.org/docs/react-component.html#componentdidmount
+ */
+class Details extends React.Component {
   state = {
     apiData: { rating: "" },
   };
