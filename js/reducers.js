@@ -15,7 +15,7 @@ const setSearchTerm = (state, action) =>
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case SET_SEARCH_TERM:
-      return SET_SEARCH_TERM(state, action);
+      return setSearchTerm(state, action);
     default:
       return state;
   }
