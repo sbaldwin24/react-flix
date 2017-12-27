@@ -1,5 +1,4 @@
 // @flow
-
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -21,7 +20,7 @@ class Landing extends React.Component {
     clearSearchTerm: Function,
     searchTerm: string,
     handleSearchTermChange: Function,
-    history: RouterHistory,
+    history: RouterHistory
   };
 
   goToSearch = (e: SyntheticEvent) => {
@@ -56,7 +55,7 @@ class Landing extends React.Component {
  * @see https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
  */
 const mapStateToProps = state => ({
-  searchTerm: state.searchTerm,
+  searchTerm: state.searchTerm
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({
@@ -66,7 +65,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
   },
   clearSearchTerm() {
     dispatch(setSearchTerm(""));
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);
