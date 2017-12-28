@@ -1,5 +1,9 @@
 # react-flix
 
+## Without Flow
+
+This branch does not include
+
 ## Installation
 
 ```sh
