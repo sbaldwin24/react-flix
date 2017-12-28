@@ -1,5 +1,4 @@
 // @flow
-
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -23,8 +22,8 @@ const Wrapper = styled((Link: any))`
 
 const Image = styled.img`
   float: left;
+  height: 250px;
   margin-right: 10px;
-  width: 46%;
 `;
 
 /**
