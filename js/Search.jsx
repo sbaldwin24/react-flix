@@ -4,9 +4,12 @@ import { connect } from "react-redux";
 import ShowCard from "./ShowCard";
 import Header from "./Header";
 
+/**
+ * @see https://flow.org/en/docs/types/
+ */
 const Search = (props: {
   searchTerm: string, // eslint-disable-line react/no-unused-prop-types
-  shows: Array<Show>,
+  shows: Array<Show>
 }) => (
   <div className="search">
     <Header showSearch />
@@ -16,7 +19,7 @@ const Search = (props: {
           show =>
             `${show.title} ${show.description}`
               .toUpperCase()
-              .indexOf(props.searchTerm.toUpperCase()) >= 0,
+              .indexOf(props.searchTerm.toUpperCase()) >= 0
         )
         .map(show => <ShowCard key={show.imdbID} {...show} />)}
     </div>
@@ -24,7 +27,7 @@ const Search = (props: {
 );
 
 const mapStateToProps = state => ({
-  searchTerm: state.searchTerm,
+  searchTerm: state.searchTerm
 });
 
 export default connect(mapStateToProps)(Search);

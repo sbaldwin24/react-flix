@@ -6,11 +6,11 @@ export type Show = {
   year: string,
   imdbID: string,
   trailer: string,
-  poster: string,
+  poster: string
 };
 
 declare var module: {
   hot: {
-    accept(path: string, callback: () => void): void,
-  },
+    accept(path: string, callback: () => void): void
+  }
 };
