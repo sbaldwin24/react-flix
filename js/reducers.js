@@ -1,7 +1,7 @@
 import { SET_SEARCH_TERM } from "./actions";
 
 const DEFAULT_STATE = {
-  searchTerm: "",
+  searchTerm: ""
 };
 
 const setSearchTerm = (state, action) =>
@@ -11,11 +11,15 @@ const setSearchTerm = (state, action) =>
  * @param {object} state
  * @param {object} action
  * @see http://redux.js.org/docs/basics/Reducers.html
+ * @see http://redux.js.org/docs/basics/Reducers.html#note-on-relationships
+ * @see http://redux.js.org/docs/recipes/reducers/NormalizingStateShape.html
+ * @see http://redux.js.org/docs/recipes/reducers/BasicReducerStructure.html
+ * @see http://redux.js.org/docs/recipes/UsingObjectSpreadOperator.html
  */
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case SET_SEARCH_TERM:
-      return SET_SEARCH_TERM(state, action);
+      return setSearchTerm(state, action);
     default:
       return state;
   }

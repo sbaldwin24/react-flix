@@ -1,5 +1,4 @@
 // @flow
-
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -23,19 +22,26 @@ const Wrapper = styled((Link: any))`
 
 const Image = styled.img`
   float: left;
+  height: 250px;
   margin-right: 10px;
-  width: 46%;
 `;
 
 /**
- * @see https://reactjs.org/docs/react-component.html#shouldcomponentupdate
+ * @class
+ * @see https://facebook.github.io/react/docs/react-api.html#react.component
+ * @see https://facebook.github.io/react/docs/react-component.html
  * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
+ * @see https://reactjs.org/docs/react-component.html#shouldcomponentupdate
  */
 class ShowCard extends React.Component {
   shouldComponentUpdate() {
     return false;
   }
   props: Show;
+
+  /**
+   * @returns {object}
+   */
   render() {
     const { description, imdbID, poster, title, year } = this.props;
     return (

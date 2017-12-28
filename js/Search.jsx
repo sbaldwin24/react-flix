@@ -1,58 +1,33 @@
 // @flow
 import React from "react";
+import { connect } from "react-redux";
 import ShowCard from "./ShowCard";
 import Header from "./Header";
 
 /**
- * @see https://babeljs.io/docs/plugins/transform-class-properties/
- * @see https://github.com/tc39/proposal-class-fields
+ * @see https://flow.org/en/docs/types/
  */
-class Search extends React.Component {
-  state = {
-    searchTerm: "",
-  };
+const Search = (props: {
+  searchTerm: string, // eslint-disable-line react/no-unused-prop-types
+  shows: Array<Show>
+}) => (
+  <div className="search">
+    <Header showSearch />
+    <div>
+      {props.shows
+        .filter(
+          show =>
+            `${show.title} ${show.description}`
+              .toUpperCase()
+              .indexOf(props.searchTerm.toUpperCase()) >= 0
+        )
+        .map(show => <ShowCard key={show.imdbID} {...show} />)}
+    </div>
+  </div>
+);
 
-  /**
-   * @see https://flow.org/en/docs/types/arrays/
-   */
-  props: {
-    shows: Array<Show>,
-  };
+const mapStateToProps = state => ({
+  searchTerm: state.searchTerm
+});
 
-  /**
-   * @see https://flow.org/en/docs/react/events/
-   */
-  handleSearchTermChange = (
-    event: SyntheticKeyboardEvent & { target: HTMLInputElement },
-  ) => {
-    const value = event.target.value;
-    this.setState({
-      searchTerm: value,
-    });
-  };
-
-  render() {
-    const { searchTerm } = this.state;
-    return (
-      <div className="search">
-        <Header
-          searchTerm={searchTerm}
-          showSearch
-          handleSearchTermChange={this.handleSearchTermChange}
-        />
-        <div>
-          {this.props.shows
-            .filter(
-              show =>
-                `${show.title} ${show.description}`
-                  .toUpperCase()
-                  .indexOf(searchTerm.toUpperCase()) >= 0,
-            )
-            .map(show => <ShowCard key={show.imdbID} {...show} />)}
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Search;
+export default connect(mapStateToProps)(Search);
