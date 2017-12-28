@@ -22,7 +22,3 @@ yarn dev
 
 In a browser, go to `http://localhost:8080/`. The page will automatically reload
 whenever source files are modified.
-
-```sh
-yarn dev
-```
