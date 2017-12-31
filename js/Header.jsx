@@ -1,19 +1,12 @@
-// @flow
-
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setSearchTerm } from "./actionCreators";
 
-/**
- * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
- */
-const Header = (props: {
-  showSearch?: boolean,
-  handleSearchTermChange: Function,
-  searchTerm: string,
-}) => {
+const Header = props => {
   let utilSpace;
+
   if (props.showSearch) {
     utilSpace = (
       <input
@@ -44,7 +37,13 @@ const Header = (props: {
  * @see https://reactjs.org/docs/typechecking-with-proptypes.html
  */
 Header.defaultProps = {
-  showSearch: false,
+  showSearch: false
+};
+
+Header.propTypes = {
+  handleSearchTermChange: PropTypes.func.isRequired,
+  searchTerm: PropTypes.string.isRequired,
+  showSearch: PropTypes.bool
 };
 
 const mapStateToProps = state => ({ searchTerm: state.searchTerm });
@@ -52,7 +51,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
   handleSearchTermChange(e) {
     const value = e.target.value;
     dispatch(setSearchTerm(value));
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

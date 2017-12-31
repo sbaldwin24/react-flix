@@ -1,5 +1,3 @@
-// @flow
-
 import React from "react";
 import axios from "axios";
 import Header from "./Header";
@@ -10,8 +8,9 @@ import Spinner from "./Spinner";
  */
 class Details extends React.Component {
   state = {
-    apiData: { rating: "" },
+    apiData: { rating: "" }
   };
+
   componentDidMount() {
     axios
       .get(`http://localhost:3000/${this.props.show.imdbID}`)
@@ -19,14 +18,18 @@ class Details extends React.Component {
         this.setState({ apiData: response.data });
       });
   }
+
   props: {
-    show: Show,
+    show: Show
   };
+
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
+    const { rating } = this.state.apiData;
     let ratingComponent;
-    if (this.state.apiData.rating) {
-      ratingComponent = <h3>{this.state.apiData.rating}</h3>;
+
+    if (rating) {
+      ratingComponent = <h3>{rating}</h3>;
     } else {
       ratingComponent = <Spinner />;
     }
