@@ -15,7 +15,8 @@
   "plugins": [
     "react-hot-loader/babel",
     "babel-plugin-transform-class-properties",
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    "transform-class-properties"
   ],
   "env": {
     "test": {

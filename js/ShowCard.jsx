@@ -1,15 +1,14 @@
-// @flow
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 /**
  * @see https://github.com/styled-components/styled-components
  * @see https://www.styled-components.com/
  * @see http://wesbos.com/tagged-template-literals/
- * @see https://flow.org/en/docs/types/any/
  */
-const Wrapper = styled((Link: any))`
+const Wrapper = styled(Link)`
   border: 2px solid #333;
   border-radius: 4px;
   color: #000;
@@ -30,14 +29,20 @@ const Image = styled.img`
  * @class
  * @see https://facebook.github.io/react/docs/react-api.html#react.component
  * @see https://facebook.github.io/react/docs/react-component.html
- * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
  * @see https://reactjs.org/docs/react-component.html#shouldcomponentupdate
  */
 class ShowCard extends React.Component {
+  static propTypes = {
+    description: PropTypes.string.isRequired,
+    imdbID: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired
+  };
+
   shouldComponentUpdate() {
     return false;
   }
-  props: Show;
 
   /**
    * @returns {object}
