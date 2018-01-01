@@ -1,7 +1,6 @@
-// @flow
 import React from "react";
 import { connect } from "react-redux";
-import { Link, RouterHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { setSearchTerm } from "./actionCreators";
 // import styled from "styled-components";
@@ -19,6 +18,9 @@ class Landing extends React.Component {
   static propTypes = {
     clearSearchTerm: PropTypes.func.isRequired,
     handleSearchTermChange: PropTypes.func.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }),
     searchTerm: PropTypes.string.isRequired
   };
 
