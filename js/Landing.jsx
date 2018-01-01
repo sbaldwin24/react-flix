@@ -1,8 +1,7 @@
 // @flow
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import type { RouterHistory } from "react-router-dom";
+import { Link, RouterHistory } from "react-router-dom";
 import { setSearchTerm } from "./actionCreators";
 // import styled from "styled-components";
 /**
@@ -23,7 +22,7 @@ class Landing extends React.Component {
     history: RouterHistory
   };
 
-  goToSearch = (e: SyntheticEvent) => {
+  goToSearch = e => {
     e.preventDefault();
     this.props.history.push("/search");
   };

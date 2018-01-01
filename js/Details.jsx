@@ -1,12 +1,32 @@
 import React from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import Header from "./Header";
 import Spinner from "./Spinner";
 
 /**
- * @see https://reactjs.org/docs/react-component.html#componentdidmount
+ * @class
+ * @see https://facebook.github.io/react/docs/react-api.html#react.component
+ * @see https://facebook.github.io/react/docs/react-component.html
+ * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
  */
 class Details extends React.Component {
+  static defaultProps = {
+    show: true
+  };
+
+  static propTypes = {
+    show: PropTypes.arrayOf(
+      PropTypes.shape({
+        description: PropTypes.string.isRequired,
+        imdbID: PropTypes.string.isRequired,
+        poster: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired
+      })
+    )
+  };
+
   state = {
     apiData: { rating: "" }
   };
@@ -18,10 +38,6 @@ class Details extends React.Component {
         this.setState({ apiData: response.data });
       });
   }
-
-  props: {
-    show: Show
-  };
 
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
