@@ -2,6 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link, RouterHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 import { setSearchTerm } from "./actionCreators";
 // import styled from "styled-components";
 /**
@@ -15,11 +16,10 @@ import { setSearchTerm } from "./actionCreators";
  * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
  */
 class Landing extends React.Component {
-  props: {
-    clearSearchTerm: Function,
-    searchTerm: string,
-    handleSearchTermChange: Function,
-    history: RouterHistory
+  static propTypes = {
+    clearSearchTerm: PropTypes.func.isRequired,
+    handleSearchTermChange: PropTypes.func.isRequired,
+    searchTerm: PropTypes.string.isRequired
   };
 
   goToSearch = e => {
