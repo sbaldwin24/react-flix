@@ -37,7 +37,9 @@ const Header = props => {
  * @see https://reactjs.org/docs/typechecking-with-proptypes.html
  */
 Header.defaultProps = {
-  showSearch: false
+  showSearch: false,
+  handleSearchTermChange: function noop() {},
+  searchTerm: ""
 };
 
 Header.propTypes = {

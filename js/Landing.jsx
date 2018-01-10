@@ -3,16 +3,11 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { setSearchTerm } from "./actionCreators";
-// import styled from "styled-components";
-/**
- * @todo add styled components
- */
 
 /**
  * @class
  * @see https://facebook.github.io/react/docs/react-api.html#react.component
  * @see https://facebook.github.io/react/docs/react-component.html
- * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
  */
 class Landing extends React.Component {
   static propTypes = {
@@ -20,7 +15,7 @@ class Landing extends React.Component {
     handleSearchTermChange: PropTypes.func.isRequired,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
-    }),
+    }).isRequired,
     searchTerm: PropTypes.string.isRequired
   };
 

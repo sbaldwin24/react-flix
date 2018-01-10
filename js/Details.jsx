@@ -8,7 +8,6 @@ import Spinner from "./Spinner";
  * @class
  * @see https://facebook.github.io/react/docs/react-api.html#react.component
  * @see https://facebook.github.io/react/docs/react-component.html
- * @see https://flow.org/en/docs/react/hoc/#injecting-props-with-a-higher-order-component-a-classtoc-idtoc-injecting-props-with-a-higher-order-component-hreftoc-injecting-props-with-a-higher-order-componenta
  */
 class Details extends React.Component {
   static defaultProps = {
@@ -16,15 +15,14 @@ class Details extends React.Component {
   };
 
   static propTypes = {
-    show: PropTypes.arrayOf(
-      PropTypes.shape({
-        description: PropTypes.string.isRequired,
-        imdbID: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        year: PropTypes.string.isRequired
-      })
-    )
+    show: PropTypes.shape({
+      description: PropTypes.string.isRequired,
+      imdbID: PropTypes.string.isRequired,
+      poster: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      trailer: PropTypes.string,
+      year: PropTypes.string.isRequired
+    })
   };
 
   state = {
@@ -34,11 +32,14 @@ class Details extends React.Component {
   componentDidMount() {
     axios
       .get(`http://localhost:3000/${this.props.show.imdbID}`)
-      .then((response: { data: { rating: string } }) => {
+      .then(response => {
         this.setState({ apiData: response.data });
       });
   }
 
+  /**
+   * @returns {object}
+   */
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
     const { rating } = this.state.apiData;
