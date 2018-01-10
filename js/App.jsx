@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import type { Match } from "react-router-dom";
+import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 import store from "./store";
 import Landing from "./Landing";
@@ -30,7 +30,7 @@ const App = () => (
           />
           <Route
             path="/details/:id"
-            component={(props: { match: Match }) => {
+            component={props => {
               const selectedShow = preload.shows.find(
                 show => props.match.params.id === show.imdbID
               );
@@ -43,5 +43,13 @@ const App = () => (
     </Provider>
   </Router>
 );
+
+App.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number
+    }).isRequired
+  })
+};
 
 export default App;
