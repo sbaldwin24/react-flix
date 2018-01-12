@@ -17,6 +17,7 @@ const dash = keyframes`
     transform: rotate(450deg);
   }
 `;
+
 const rotator = keyframes`
 	0% {
 		transform: rotate(0deg);

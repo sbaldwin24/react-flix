@@ -41,7 +41,7 @@ class Details extends React.Component {
    * @returns {object}
    */
   render() {
-    const { title, description, year, poster, trailer } = this.props.show;
+    const { description, poster, title, trailer, year } = this.props.show;
     const { rating } = this.state.apiData;
     let ratingComponent;
 
@@ -50,6 +50,7 @@ class Details extends React.Component {
     } else {
       ratingComponent = <Spinner />;
     }
+
     return (
       <div className="details">
         <Header />
